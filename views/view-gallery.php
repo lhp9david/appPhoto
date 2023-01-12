@@ -1,3 +1,8 @@
+<?php
+$userInfo = $_SESSION;
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +12,6 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Salut</h1>
+    <h1><?='salut'.' '  .$userInfo['pseudo'] ?></h1>
 </body>
 </html>

@@ -16,7 +16,7 @@
 
         <div>
             <label for="mail">Email: </label>
-            <input type="mail" name="mail" id="mail"><span><?= $errors['mail'] ?? '' ?></span>
+            <input value="<?= $_POST['mail'] ?? ''?>" type="mail" name="mail" id="mail"><span><?= $errors['mail'] ?? '' ?></span>
         </div>
 
         <div>

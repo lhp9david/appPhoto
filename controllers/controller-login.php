@@ -1,7 +1,6 @@
 <?php
-// session_start();
+session_start();
 
-// $_SESSION["newsession"] = $value;
 
 // je recupere le JSON
 @$json = file_get_contents('../data/users.json');
@@ -30,6 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $errors['mail'] = 'Veuillez entrer votre adresse mail';
         }
     }
+
     if (isset($_POST['password'])) {
 
         $password = $_POST['password'];
@@ -44,8 +44,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         foreach ($users as $key => $value) {
             $userMail =  $value['mail'];
             $userPassword = $value['password'];
+            $userPseudo = $value['pseudo'];
+            $userQuota = $value['quota'];
+
             if ($userMail === $mail) {
+
                 if (password_verify($password, $userPassword)) {
+
+                    $_SESSION['mail'] = $userMail;
+                    $_SESSION['pseudo'] = $userPseudo;
+                    $_SESSION['quota'] = $userQuota;
+
                     header('Location: controller-gallery.php');
                 }
             } else if ($userMail != $mail || $password = !$userPassword) {
@@ -55,15 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-
-
 ?>
-
-
-
-
-
-
 
 <!-- // appelle de la vue  -->
 <?php
