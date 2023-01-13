@@ -8,8 +8,7 @@
     <title>Document</title>
 </head>
 <body>
-<h1>Gallery</h1>
-<?php include('../views/include/navbar.php')?>
-
+    <h1>Profil</h1>
+    <?php include('../views/include/navbar.php') ?>
 </body>
 </html>

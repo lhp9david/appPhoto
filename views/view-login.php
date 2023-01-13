@@ -10,13 +10,17 @@
 </head>
 
 <body>
+  
+<?php if (isset($disconnected)) { ?>
+    <p>Vous êtes bien déconnecté</p>
+   <button><a href="../controllers/controller-login.php">Retour à l'accueil</a></button> 
+<?php } else { ?>
     <h1>Login</h1>
-
     <form action="" method="post">
 
         <div>
             <label for="mail">Email: </label>
-            <input value="<?= $_POST['mail'] ?? ''?>" type="mail" name="mail" id="mail"><span><?= $errors['mail'] ?? '' ?></span>
+            <input value="<?= $_POST['mail'] ?? '' ?>" type="mail" name="mail" id="mail"><span><?= $errors['mail'] ?? '' ?></span>
         </div>
 
         <div>
@@ -26,6 +30,7 @@
         <p class="erreur"><?= $errors['erreur'] ?? '' ?></p>
         <input type="submit" name="submit">
     </form>
+    <?php }?>
 </body>
 
 </html>

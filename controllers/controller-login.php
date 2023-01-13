@@ -51,9 +51,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 if (password_verify($password, $userPassword)) {
 
-                    $_SESSION['mail'] = $userMail;
-                    $_SESSION['pseudo'] = $userPseudo;
-                    $_SESSION['quota'] = $userQuota;
+                    $_SESSION['user'] = [
+                        'quota' => $userQuota,
+                        'mail' => $userMail,
+                        'pseudo' => $userPseudo
+                    ];
+                 
 
                     header('Location: controller-gallery.php');
                 }
@@ -64,6 +67,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
+if(isset($_GET['logout'])) {
+    session_destroy();
+    $disconnected = true;
+}
 ?>
 
 <!-- // appelle de la vue  -->
