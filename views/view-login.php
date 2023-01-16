@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../assets/style.css">
+    <link rel="stylesheet" href="../assets/style<?=$theme?>.css">
+    <link rel="icon" href="../assets/img/logoBlack.png">
     <title>Document</title>
 </head>
 
@@ -13,7 +14,7 @@
   
 <?php if (isset($disconnected)) { ?>
     <p>Vous êtes bien déconnecté</p>
-   <button><a href="../controllers/controller-login.php">Retour à l'accueil</a></button> 
+   <button class="return"><a href="../controllers/controller-login.php">Retour à l'accueil</a></button> 
 <?php } else { ?>
     <h1 class="titreLog">App Photo</h1>
     <form class="login" action="" method="post">

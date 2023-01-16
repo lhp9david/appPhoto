@@ -5,10 +5,10 @@ if (!isset($_SESSION['user'])) {
     exit;
 }
 if (isset($_POST['theme'])) {
-    setcookie('theme', $_POST['theme'], time() + (86400 * 30), "/");
+    setcookie($_SESSION['user']['pseudo'].'theme', $_POST['theme'], time() + (86400 * 30), "/");
     $theme = $_POST['theme'];
-} elseif (isset($_COOKIE['theme'])) {
-    $theme = $_COOKIE['theme'];
+} elseif (isset($_COOKIE[$_SESSION['user']['pseudo'].'theme'])) {
+    $theme = $_COOKIE[$_SESSION['user']['pseudo'].'theme'];
 } else {
     $theme = 'light';
 }

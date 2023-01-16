@@ -5,10 +5,11 @@ html,
 body {
     margin: 0;
     padding: 0;
-    height: 100vh;
+    min-height: 100vh;
     box-sizing: border-box;
     font-family: 'Ubuntu', sans-serif;
     background-color: rgb(239, 239, 239);
+    position: relative;
 
 }
 
@@ -80,6 +81,7 @@ nav ul {
 label {
     display: block;
     margin: auto;
+    text-align: center;
 }
 
 .imageLog img {
@@ -98,7 +100,7 @@ label {
     margin: auto;
 }
 
-.submit input {
+.submit input,.return {
     padding: 1em;
     text-align: center;
     border-radius: 2em;
@@ -113,6 +115,8 @@ label {
     background-color: white;
     transition: 0.5s;
 }
+
+
 
 /* page upload **********************************************************************************************************************/
 
@@ -161,12 +165,13 @@ label {
     width: fit-content;
     margin: auto;
     font-size: 1.2em;
-    border: 4mm ridge rgba(27, 27, 25, 0.6);
+    border: 10px double black;
     padding: 2em;
 }
 
 fieldset div {
-    padding: 0.2em;
+    padding: 0.8em;
+    display: flex;
 }
 
 fieldset legend {
@@ -176,7 +181,29 @@ fieldset legend {
 /**page gallery *************************************************************************************************************************************/
 
 
+.container-gallery {
+    display: flex;
+    flex-wrap: wrap;
+}
+.container-gallery button{
+    display: block;
+    width: fit-content;
+    margin: auto;
+    padding: 1em;
+    text-align: center;
+    border-radius: 2em;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    border: none;
+}
 
+.container-gallery button:hover {
+    color: black;
+    background-color: white;
+    border: 1px solid black;
+    transition: 0.5s;
+}
 .container-gallery img {
     height: 200px;
     padding: 0em;
@@ -197,10 +224,17 @@ footer {
     justify-content: space-around;
     font-family: 'Moon Dance', cursive;
     font-weight: bold;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    filter: drop-shadow(5px 5px 10px black);
+
 }
 
 /********************************************************************************************************************************************************/
 @media (max-width: 768px) {
+
     .container-gallery {
         grid-template-columns: auto;
         width: 100%;

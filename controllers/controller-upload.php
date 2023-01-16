@@ -5,8 +5,8 @@ if (!isset($_SESSION['user'])) {
     exit;
 }
 // Cookie thème
-if (isset($_COOKIE['theme'])) {
-    $theme = $_COOKIE['theme'];
+if (isset($_COOKIE[$_SESSION['user']['pseudo'].'theme'])) {
+    $theme = $_COOKIE[$_SESSION['user']['pseudo'].'theme'];
 } else {
     $theme = 'light';
 }
