@@ -11,23 +11,27 @@
 </head>
 
 <body>
-    <h1>Upload</h1>
+
 
     <?php include('../views/include/navbar.php') ?>
+    <h1>Upload</h1>
 
     <div class="container">
         <form action="" method="POST" enctype="multipart/form-data">
 
-            <input type="file" name="userFile" oninput="pic.src=window.URL.createObjectURL(this.files[0])" /><img id="plus"src="assets/img/plus.png" alt=""><span><?= $messages['userFile'] ?? '' ?></span> <br>
-            <img id =pic src="" height="200" alt="Image preview" /> <br>
+        <div class="download">
+        <input type="file" name="userFile" oninput="pic.src=window.URL.createObjectURL(this.files[0])" /><span class="erreur"><?= $messages['userFile'] ?? '' ?></span> <br>
+            <img id =pic src="" height="200" /> <br>
+        </div>
   
             
          
     </div>
+    <div class="button-download">    <input type="submit" name="submit" value="Télécharger"></div>
 
-    <input type="submit" name="submit">
 
     </form>
+    <?php include('../views/include/footer.php') ?>
 </body>
 
 </html>

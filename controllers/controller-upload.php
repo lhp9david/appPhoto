@@ -1,8 +1,14 @@
 <?php
 session_start();
-if(!isset($_SESSION['user'])){
+if (!isset($_SESSION['user'])) {
     header('Location: controller-login.php');
     exit;
+}
+// Cookie thème
+if (isset($_COOKIE['theme'])) {
+    $theme = $_COOKIE['theme'];
+} else {
+    $theme = 'light';
 }
 
 ?>
@@ -12,6 +18,23 @@ if(!isset($_SESSION['user'])){
 $arrayExt = ['jpg', 'jpeg', 'png', 'webp'];
 $upload_directory = 'assets/img/';
 
+
+function checkquota()
+{
+
+    $dir = '../assets/img/' . $_SESSION['user']['pseudo'] . '/';
+    $files = array_diff(scandir($dir), array('..', '.'));
+    $usedsize = 0;
+
+    foreach ($files as $file) {
+        $usedsize = $usedsize + filesize($dir . $file);
+    }
+
+    $usedsize = $usedsize / (1024 * 1024);
+    $currentquota = $_SESSION['user']['quota'] - $usedsize;
+
+    return $currentquota;
+}
 function checkImage($inputName, $maxSize, $arrayExt)
 {
 
@@ -58,6 +81,13 @@ function checkImage($inputName, $maxSize, $arrayExt)
                 'message' => 'Veuillez selectionner une image inferieur à 2Mo'
             ];
         }
+
+        if ($_FILES[$inputName]['size'] / (1024 * 1024) > checkquota()) {
+            $response = [
+                'status' => false,
+                'message' => "Votre quota est dépassé"
+            ];
+        }
     }
     return $response;
 }
@@ -91,7 +121,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $messages[$key] = $result['message'];
             } else {
 
-                $messages[$key] = uploadImage($key, '.webp', '../assets/img/'.$_SESSION['user']['pseudo'])['message'];
+                $messages[$key] = uploadImage($key, '.webp', '../assets/img/' . $_SESSION['user']['pseudo'] . '/')['message'];
             }
         }
     }
@@ -102,4 +132,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ?>
 
 
-<?php include_once('../views/view-upload.php');?>
+<?php include_once('../views/view-upload.php'); ?>

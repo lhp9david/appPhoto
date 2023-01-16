@@ -9,15 +9,18 @@
     <title>Document</title>
 </head>
 
-<body>
+<body class="pageLog">
   
 <?php if (isset($disconnected)) { ?>
     <p>Vous êtes bien déconnecté</p>
    <button><a href="../controllers/controller-login.php">Retour à l'accueil</a></button> 
 <?php } else { ?>
-    <h1>Login</h1>
-    <form action="" method="post">
+    <h1 class="titreLog">App Photo</h1>
+    <form class="login" action="" method="post">
 
+    <div class="imageLog">
+        <img src="/assets/img/logoBlack.png" alt="">
+    </div>
         <div>
             <label for="mail">Email: </label>
             <input value="<?= $_POST['mail'] ?? '' ?>" type="mail" name="mail" id="mail"><span><?= $errors['mail'] ?? '' ?></span>
@@ -28,9 +31,13 @@
             <input type="password" name="password" id="password"><span><?= $errors['password'] ?? '' ?></span>
         </div>
         <p class="erreur"><?= $errors['erreur'] ?? '' ?></p>
-        <input type="submit" name="submit">
+        <div class="submit">
+        <input  type="submit" name="submit" value="se connecter">
+        </div>
+       
     </form>
     <?php }?>
+   
 </body>
 
 </html>

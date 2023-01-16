@@ -9,6 +9,7 @@
 <body>
 <nav>
         <ul>
+            <li><a href=""><img id='logo'src="/assets/img/logoWhite.png" alt=""></a></li>
             <li><a href="../controllers/controller-gallery.php">Gallery</a></li>
             <li><a href="../controllers/controller-upload.php">Upload</a></li>
             <li><a href="../controllers/controller-profil.php">Profil</a></li>

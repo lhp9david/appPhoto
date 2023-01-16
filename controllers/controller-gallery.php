@@ -4,10 +4,16 @@ if(!isset($_SESSION['user'])){
     header('Location: controller-login.php');
     exit;
 }
+// Cookie thème
+if (isset($_COOKIE['theme'])) {
+    $theme = $_COOKIE['theme'];
+} else {
+    $theme = 'light';
+}
 
-// $directory = '../assets/img/'.$_SESSION['user']['pseudo'].'/';
-// scandir($directory);
-// var_dump($directory);
+$files = array_diff(scandir("../assets/img/".$_SESSION['user']['pseudo']."/"), array('..', '.'));
+
+
 
 include_once('../views/view-gallery.php');
 

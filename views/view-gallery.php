@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,9 +8,24 @@
     <link rel="stylesheet" href="../assets/style.css">
     <title>Document</title>
 </head>
-<body>
-<h1>Gallery</h1>
-<?php include('../views/include/navbar.php')?>
 
+<body>
+
+    <?php include('../views/include/navbar.php') ?>
+    <h1>Gallery</h1>
+    <div class="container-gallery">
+
+
+        <?php foreach ($files as $value) {  ?>
+
+
+            <img src="<?= "/assets/img/" . $_SESSION['user']['pseudo'] . '/' . $value ?>" alt="">
+
+
+
+        <?php } ?>
+    </div>
+    <?php include('../views/include/footer.php') ?>
 </body>
+
 </html>

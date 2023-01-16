@@ -1,6 +1,12 @@
 <?php
 session_start();
 
+// Cookie thème
+if (isset($_COOKIE['theme'])) {
+    $theme = $_COOKIE['theme'];
+} else {
+    $theme = 'light';
+}
 
 // je recupere le JSON
 @$json = file_get_contents('../data/users.json');
