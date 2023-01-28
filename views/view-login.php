@@ -24,7 +24,7 @@
     </div>
         <div>
             <label for="mail">Email: </label>
-            <input value="<?= $_POST['mail'] ?? '' ?>" type="mail" name="mail" id="mail"><span><?= $errors['mail'] ?? '' ?></span>
+            <input value="<?= $_POST['mail'] ?? '' ?>" type="email" name="mail" id="mail"><span><?= $errors['mail'] ?? '' ?></span>
         </div>
 
         <div>
