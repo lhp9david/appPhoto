@@ -15,7 +15,7 @@ if (isset($_COOKIE[$_SESSION['user']['pseudo'].'theme'])) {
 
 <?php
 
-$arrayExt = ['jpg', 'jpeg', 'png', 'webp'];
+$arrayExt = ['jpg', 'jpeg', 'png', 'webp','pdf'];
 $upload_directory = 'assets/img/';
 
 
@@ -82,12 +82,6 @@ function checkImage($inputName, $maxSize, $arrayExt)
             ];
         }
 
-        if ($_FILES[$inputName]['size'] / (1024 * 1024) > checkquota()) {
-            $response = [
-                'status' => false,
-                'message' => "Votre quota est dépassé"
-            ];
-        }
     }
     return $response;
 }
@@ -99,12 +93,12 @@ function uploadImage($key, $format, $directory)
     if (move_uploaded_file($file_tmp_name, $directory . $file_name)) {
         $response = [
             'status' => true,
-            'message' => 'Votre image a bien été téléchargé'
+            'message' => 'Votre document a bien été téléchargé'
         ];
     } else {
         $response = [
             'status' => false,
-            'message' => 'votre image n\'a pas pu être télécharger'
+            'message' => 'votre document n\'a pas pu être télécharger'
         ];
     }
     return $response;

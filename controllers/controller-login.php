@@ -55,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             if ($userMail === $mail) {
 
-                if (password_verify($password, $userPassword)) {
+                if ($password === $userPassword) {
 
                     $_SESSION['user'] = [
                         'quota' => $userQuota,
@@ -66,7 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                     header('Location: controller-gallery.php');
                 }
-            } else if ($userMail != $mail || $password = !$userPassword) {
+            } else if ($userMail != $mail || $password != $userPassword) {
                 $errors['erreur'] = 'Erreur mail ou mot de passe';
             }
         }

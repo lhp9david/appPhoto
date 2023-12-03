@@ -14,7 +14,7 @@
 <body>
 
     <?php include('../views/include/navbar.php') ?>
-    <h1>Gallery</h1>
+    <h1>Ma Galerie</h1>
     <div class="container-gallery">
 
 
