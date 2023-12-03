@@ -1,6 +1,16 @@
-# appPhoto
-Exercice : Application de Photo réaliser en PHP
 
-Possibilité d'ajouter et de supprimer des photos de sa gallerie <br>
-Mise en place d'une limite de stockage <br>
-Choix de theme light / Dark
+
+# <p align="center">App photo</p>
+  
+stockage d'images dans une galerie.
+
+## 🧐 Features    
+- Connexion
+- upload de photo
+- Choix du thème 
+        
+
+## 🛠️ Tech Stack
+- PHP
+- JAVASCRIPT
+        
